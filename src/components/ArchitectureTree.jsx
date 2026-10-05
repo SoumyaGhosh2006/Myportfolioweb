@@ -23,15 +23,15 @@ export default function ArchitectureTree() {
     },
     {
       id: 'kstop',
-      name: 'K-Stop Realtime ERP Flow',
-      subtitle: 'QR Passes & Attendance -> Socket.io -> Redis -> Prisma',
-      activeNodes: ['c1', 'c3', 'g2', 'g3', 'p2', 'p1', 'e1', 'e2'],
+      name: 'K-Stop Multi-Role Workflow',
+      subtitle: '4 Roles ➔ 4-Stage Leave QR Passes ➔ OTP Auth ➔ Realtime Socket.IO Chat',
+      activeNodes: ['c1', 'c3', 'g2', 'g3', 'p1', 'e1'],
       color: 'emerald'
     },
     {
       id: 'glamgo',
-      name: 'GLAMGO Sub-Second Sync',
-      subtitle: 'Client Storefront -> Supabase Realtime Stream -> Edge',
+      name: 'GLAMGO 2-Source Catalog',
+      subtitle: '2-Source Resilient Catalog ➔ Realtime CRUD Sync ➔ SEO-Ready Routing',
       activeNodes: ['c1', 'p3', 'p1', 'e1'],
       color: 'purple'
     }

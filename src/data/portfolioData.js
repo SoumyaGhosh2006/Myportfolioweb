@@ -11,9 +11,9 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/soumya-ghosh-69ba77300",
   bio: "3rd-year Computer Science Engineering student at KIIT University (Batch 2024-28). I approach every technical challenge with complete focus and ownership, treating quality and efficiency as non-negotiable. Whether building enterprise platforms from scratch or optimizing complex workflows, I invest the time and effort needed to deliver solutions that scale seamlessly under real-world pressure.",
   quickStats: [
-    { label: "Target Audience Scale", value: "30,000+", detail: "Students via K-Stop Campus Platform" },
+    { label: "Hostel & Campus Roles", value: "4 Roles", detail: "Student, Parent, Mentor, Staff (K-Stop)" },
     { label: "Bookkeeping Time Saved", value: "1.5-2 hrs", detail: "Daily savings with SchoolDesk Voice AI" },
-    { label: "Database Sync Latency", value: "< 1s", detail: "Supabase Realtime in GLAMGO" },
+    { label: "Resilient Storefront", value: "2-Source", detail: "Supabase Realtime + Fallback (GLAMGO)" },
     { label: "Hackathons Tackled", value: "5+", detail: "SIH25, ETHackathon, GDG, Lablab" },
   ]
 };
@@ -86,50 +86,53 @@ export const projects = [
   {
     id: "k-stop",
     title: "K-Stop",
-    subtitle: "KIIT Campus Management & Student Lifecycle Platform",
-    tagline: "High-concurrency ERP replacement for 30,000+ university students",
-    category: "Enterprise System",
+    subtitle: "Multi-Role Hostel & Campus Management Platform",
+    tagline: "4 user roles | 4-stage leave workflow | 2-step approval | QR gate passes | 5-attempt OTP protection | Realtime Socket.IO chat",
+    category: "Campus & Hostel Platform",
     featured: true,
-    status: "Under Active Evolution",
-    impact: "Zero manual handoff, real-time alerts across 30k+ campus community",
-    stack: ["React.js", "PostgreSQL", "Prisma ORM", "Redis", "Socket.io", "JWT", "Render", "Vercel"],
+    status: "Production Ready",
+    impact: "4 user roles | 4-stage leave workflow | QR gate passes | Realtime Socket.IO chat",
+    stack: ["React.js", "PostgreSQL", "Prisma", "Socket.IO", "JWT", "OTP Protection", "NLP Grievance Engine"],
     github: "https://github.com/SoumyaGhosh2006/KSTOP",
-    description: "An enterprise-grade campus management system engineered to replace outdated, manual-heavy legacy systems (SAP Portal & Fretbox). Connects 30,000+ students, faculty mentors, hostel wardens, and parents in a seamless, zero-paper ecosystem.",
+    description: "Engineered a multi-role hostel-management platform spanning 4 user roles (Student, Parent, Mentor, Hostel Staff) with automated leave, grievance, notification and parent–mentor communication workflows.",
     keyPoints: [
-      "Dynamic QR Gate Passes: Generated automatically upon mentor digital approval; scanned at campus gates with zero physical paperwork.",
-      "Real-Time Redis Pub/Sub: Dispatches live attendance alerts, emergency notices, and mess menus via Socket.io.",
-      "Role-Based Architecture: 4 distinct dashboards (Student, Mentor, Hostel Warden, Parent) with JWT + bcrypt role guards.",
-      "Evolutionary SDLC: Engineered with Prisma ORM and PostgreSQL migrations, deployed across Vercel and Render."
+      "Engineered a multi-role hostel-management platform spanning 4 user roles (Student, Parent, Mentor, Hostel Staff) with automated leave, grievance, notification and parent–mentor communication workflows.",
+      "Automated a 4-stage leave lifecycle (student request, parent approval, mentor approval, QR gate verification), replacing fragmented manual coordination with a digital gate-pass workflow.",
+      "Implemented OTP-based authentication using hashed 6-digit codes, 10-minute expiry and 5-attempt verification limits, alongside parent-registry validation.",
+      "Developed NLP-style grievance prioritization using category baselines and severity signals, enabling staff to surface higher-priority issues automatically.",
+      "Built realtime parent–mentor chat over Socket.IO and role-based dashboards backed by Prisma/PostgreSQL."
     ],
     architectureDetails: {
-      client: "Modular React.js with role-specific views & real-time notification listener",
-      server: "Node.js & Express.js with Prisma ORM connecting to PostgreSQL",
-      caching: "Redis Pub/Sub handling high-frequency websocket event distribution",
-      security: "JWT stateless auth, bcrypt password hashing, scoped RBAC middleware"
+      userRoles: "4 user roles: Student, Parent, Mentor, and Hostel Staff",
+      leaveLifecycle: "4-stage: Student request ➔ Parent approval ➔ Mentor approval ➔ QR gate verification",
+      authentication: "OTP-based auth with hashed 6-digit codes, 10-min expiry & 5-attempt verification limits",
+      grievanceAI: "NLP-style grievance prioritization using category baselines and severity signals",
+      realtimeChat: "Realtime parent–mentor chat over Socket.IO and role dashboards backed by Prisma/PostgreSQL"
     }
   },
   {
     id: "glamgo",
     title: "GLAMGO",
-    subtitle: "Real-Time Product Catalogue & E-Commerce Storefront for Maftimpex",
-    tagline: "Sub-second database sync & conversion-oriented modern storefront",
-    category: "Full Stack Web",
+    subtitle: "E-commerce / Production Web",
+    tagline: "2-source resilient catalog | Realtime CRUD sync | SEO-ready routing",
+    category: "E-Commerce / Production Web",
     featured: true,
-    status: "Live & Deployed",
-    impact: "Propagates price & catalogue changes live in < 1 second",
-    stack: ["React.js", "Supabase Realtime", "JavaScript", "HTML5 Semantic", "Tailwind CSS"],
+    status: "Production Ready",
+    impact: "2-source resilient catalog | Realtime CRUD sync | SEO-ready routing",
+    stack: ["React.js", "Supabase Realtime", "JavaScript", "SEO-Ready Routing", "Error Boundaries"],
     github: "https://github.com/SoumyaGhosh2006/GLAMGO",
-    description: "Replaced a static, visually outdated catalogue that failed to meet modern digital marketing standards. Redesigned the entire storefront from scratch with high responsiveness, lightning load times, and instantaneous Supabase Realtime synchronization.",
+    description: "Built a production-ready e-commerce storefront with realtime Supabase product synchronization and local fallback data, maintaining catalog availability during backend/data-source failures.",
     keyPoints: [
-      "Instant Database Propagation: Price and stock updates sync across all connected clients in under 1 second without page refresh.",
-      "Technical SEO Optimization: Semantic HTML5, dynamic Open Graph metadata, and structured JSON-LD schema markup.",
-      "Conversion-Driven UX: Mobile-optimized product gallery, instant filter drawers, and zero layout shift (CLS = 0).",
-      "Zero Maintenance Overhead: Automated content refresh workflows eliminate manual site updates."
+      "Built a production-ready e-commerce storefront with realtime Supabase product synchronization and local fallback data, maintaining catalog availability during backend/data-source failures.",
+      "Implemented realtime INSERT/UPDATE/DELETE product updates, route-level lazy loading, centralized SEO metadata, canonical URLs and application-level error boundaries.",
+      "2-source resilient catalog ensuring high availability and zero downtime during network or data-source interruptions.",
+      "SEO-ready routing with centralized metadata, open graph tags, canonical links, and performance-optimized route chunking."
     ],
     architectureDetails: {
-      client: "React.js SPA with responsive grid, glassmorphic filters, and image lazy loading",
-      backend: "Supabase PostgreSQL with WebSocket Realtime subscriptions",
-      seo: "Pre-rendered metadata, Open Graph cards, Google Rich Snippets markup"
+      catalogResilience: "2-source resilient catalog with local fallback data during backend/data-source failures",
+      realtimeSync: "Realtime INSERT/UPDATE/DELETE product updates via Supabase Realtime",
+      routingSEO: "Route-level lazy loading, centralized SEO metadata & canonical URLs",
+      stability: "Application-level error boundaries for fault isolation"
     }
   }
 ];
