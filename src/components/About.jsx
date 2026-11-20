@@ -56,7 +56,7 @@ export default function About() {
   const highlights = [
     { label: "Institution", value: "KIIT University, Bhubaneswar", icon: GraduationCap },
     { label: "Base Location", value: "Kolkata, India", icon: MapPin },
-    { label: "Target Goal", value: "Summer 2027 Internship (IBM / Product Teams)", icon: Target },
+    { label: "Target Goal", value: "Summer 2027 Internship", icon: Target },
   ];
 
   return (
