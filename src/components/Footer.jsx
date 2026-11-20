@@ -1,6 +1,6 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowUp, Heart, Terminal, Sparkles } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
 export default function Footer() {
@@ -9,45 +9,43 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-12 border-t border-white/10 bg-[#070913]/90 relative z-10 backdrop-blur-xl">
+    <footer className="py-12 border-t border-white/[0.08] bg-[#07080B] relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Left Brand & Status */}
+          {/* Left Brand */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 p-[1px]">
-              <div className="w-full h-full bg-[#0b0f19] rounded-[11px] flex items-center justify-center font-mono text-xs font-bold text-indigo-300">
-                SG
-              </div>
+            <div className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center font-mono text-xs font-bold text-zinc-200">
+              SG
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-sm text-white">Soumya Ghosh</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  Open for Internship
+                <span className="font-semibold text-sm text-zinc-100">Soumya Ghosh</span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.06]">
+                  CSE · KIIT '28
                 </span>
               </div>
-              <p className="text-xs text-slate-400">Full Stack Developer · AI/ML Engineer · KIIT '28</p>
+              <p className="text-xs text-zinc-500 font-mono">Full Stack & Systems Engineering</p>
             </div>
           </div>
 
-          {/* Center: System Telemetry */}
-          <div className="flex items-center gap-4 text-xs font-mono text-slate-400">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+          {/* Center Telemetry */}
+          <div className="flex items-center gap-3 text-xs font-mono text-zinc-500">
+            <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
               All Conduits Operational
             </span>
-            <span className="hidden sm:inline-block">·</span>
-            <span className="hidden sm:inline-block">React 19 + Vite</span>
+            <span>·</span>
+            <span>React 19 + Vite</span>
           </div>
 
-          {/* Right: Back to Top & Socials */}
-          <div className="flex items-center gap-3">
+          {/* Right Links & Back to Top */}
+          <div className="flex items-center gap-2">
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="p-2 rounded-xl glass-pill text-slate-400 hover:text-white transition-colors"
+              className="p-2 rounded-lg obsidian-pill text-zinc-400 hover:text-white transition-colors"
             >
               <Github className="w-4 h-4" />
             </a>
@@ -56,13 +54,13 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-2 rounded-xl glass-pill text-slate-400 hover:text-white transition-colors"
+              className="p-2 rounded-lg obsidian-pill text-zinc-400 hover:text-white transition-colors"
             >
               <Linkedin className="w-4 h-4" />
             </a>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-xl glass-pill text-slate-400 hover:text-white hover:border-indigo-400/50 transition-colors flex items-center gap-1 text-xs"
+              className="p-2 rounded-lg obsidian-pill text-zinc-400 hover:text-white transition-colors"
               title="Return to top"
             >
               <ArrowUp className="w-4 h-4" />
@@ -70,11 +68,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>© {new Date().getFullYear()} Soumya Ghosh. All rights reserved.</span>
-          <span className="flex items-center gap-1">
-            Engineered with high ownership, glassmorphism & continuous data conduits.
-          </span>
+        <div className="mt-8 pt-6 border-t border-white/[0.04] text-center text-xs text-zinc-600 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono">
+          <span>© {new Date().getFullYear()} Soumya Ghosh.</span>
+          <span>Engineered with high ownership, obsidian architecture & zero slop.</span>
         </div>
       </div>
     </footer>

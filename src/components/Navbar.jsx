@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Menu, X, ArrowUpRight, Mail, Sparkles, Terminal } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
 export default function Navbar() {
@@ -16,7 +16,7 @@ export default function Navbar() {
           const isScrolled = window.scrollY > 20;
           setScrolled(prev => prev !== isScrolled ? isScrolled : prev);
 
-          const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
+          const sections = ['hero', 'about', 'projects', 'terminal', 'skills', 'experience', 'contact'];
           const scrollPosition = window.scrollY + 160;
 
           for (let i = sections.length - 1; i >= 0; i--) {
@@ -38,10 +38,10 @@ export default function Navbar() {
 
   const navLinks = [
     { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills & Flow' },
     { id: 'projects', label: 'Projects' },
+    { id: 'terminal', label: 'CLI Sandbox' },
+    { id: 'skills', label: 'Stack' },
     { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Education' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -55,52 +55,48 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'py-3 bg-[#070913]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
+          ? 'py-3 bg-[#08090C]/90 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.7)]'
           : 'py-5 bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Monogram */}
+          {/* Brand Monogram */}
           <button
             onClick={() => scrollTo('hero')}
-            className="flex items-center gap-2.5 text-left group focus:outline-none"
+            className="flex items-center gap-3 text-left group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-500 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all">
-              <div className="w-full h-full bg-[#0b0f19] rounded-[11px] flex items-center justify-center">
-                <span className="font-mono text-sm font-bold bg-gradient-to-r from-indigo-300 to-cyan-300 bg-clip-text text-transparent">
-                  SG
-                </span>
-              </div>
+            <div className="w-9 h-9 rounded-xl bg-white/[0.06] border border-white/10 flex items-center justify-center font-mono text-xs font-bold text-zinc-100 group-hover:border-white/30 transition-colors">
+              SG
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-sm sm:text-base text-white tracking-tight group-hover:text-indigo-300 transition-colors">
+                <span className="font-semibold text-sm sm:text-base text-zinc-100 tracking-tight group-hover:text-white transition-colors">
                   Soumya Ghosh
                 </span>
-                <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1 animate-pulse"></span>
                   Active
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 font-mono hidden sm:block">Full Stack · AI/ML</p>
+              <p className="text-xs text-zinc-500 font-mono hidden sm:block">Backend & Systems</p>
             </div>
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 glass-pill px-3 py-1.5 rounded-full border border-white/10 bg-slate-900/40 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 obsidian-pill px-3 py-1.5 rounded-full">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
                     isActive
-                      ? 'text-white bg-indigo-600/30 border border-indigo-500/40 shadow-sm shadow-indigo-500/20'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'text-white bg-white/10 shadow-sm font-semibold'
+                      : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
                   {link.label}
@@ -109,32 +105,32 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right Action Icons & CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Right Action Icons & Direct Connect */}
+          <div className="hidden lg:flex items-center gap-2.5">
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="w-9 h-9 rounded-lg glass-pill flex items-center justify-center text-slate-300 hover:text-white hover:border-indigo-500/40 transition-colors"
+              className="w-8 h-8 rounded-lg obsidian-pill flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/30 transition-colors"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-3.5 h-3.5" />
             </a>
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="w-9 h-9 rounded-lg glass-pill flex items-center justify-center text-slate-300 hover:text-white hover:border-indigo-500/40 transition-colors"
+              className="w-8 h-8 rounded-lg obsidian-pill flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/30 transition-colors"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-3.5 h-3.5" />
             </a>
             <button
               onClick={() => scrollTo('contact')}
-              className="relative group overflow-hidden px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-zinc-950 hover:bg-zinc-200 transition-all flex items-center gap-1.5 shadow-sm"
             >
-              <span>Get In Touch</span>
-              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>Get in Touch</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
@@ -142,38 +138,38 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl glass-pill text-slate-300 hover:text-white focus:outline-none"
-              aria-label="Toggle Navigation Menu"
+              className="p-2 rounded-xl obsidian-pill text-zinc-300 hover:text-white focus:outline-none"
+              aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-3 p-4 rounded-2xl glass-panel border border-white/10 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="flex flex-col gap-1.5">
+          <div className="md:hidden mt-3 p-4 rounded-2xl obsidian-card border border-white/10 shadow-2xl animate-in fade-in duration-150">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className={`text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  className={`text-left px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
                     activeSection === link.id
-                      ? 'text-white bg-indigo-500/20 border border-indigo-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'text-white bg-white/10 font-semibold'
+                      : 'text-zinc-400 hover:text-white'
                   }`}
                 >
                   {link.label}
                 </button>
               ))}
-              <div className="pt-3 mt-1 border-t border-white/10 flex items-center justify-between">
+              <div className="pt-3 mt-2 border-t border-white/10 flex items-center justify-between">
                 <div className="flex gap-2">
                   <a
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg glass-pill text-slate-300"
+                    className="p-2 rounded-lg obsidian-pill text-zinc-400"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -181,16 +177,16 @@ export default function Navbar() {
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg glass-pill text-slate-300"
+                    className="p-2 rounded-lg obsidian-pill text-zinc-400"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
                 </div>
                 <button
                   onClick={() => scrollTo('contact')}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-indigo-500 to-cyan-500 text-white"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-white text-zinc-950"
                 >
-                  Get In Touch
+                  Get in Touch
                 </button>
               </div>
             </div>

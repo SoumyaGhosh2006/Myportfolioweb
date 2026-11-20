@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import SkillsSection from './components/SkillsSection';
 import ProjectsSection from './components/ProjectsSection';
+import InteractiveTerminal from './components/InteractiveTerminal';
+import SkillsSection from './components/SkillsSection';
 import ExperienceSection from './components/ExperienceSection';
 import EducationCertifications from './components/EducationCertifications';
 import ContactSection from './components/ContactSection';
@@ -18,7 +19,7 @@ export default function App() {
       if (rafId) return;
       rafId = requestAnimationFrame(() => {
         if (spotlightRef.current) {
-          spotlightRef.current.style.background = `radial-gradient(650px circle at ${e.clientX}px ${e.clientY}px, rgba(99, 102, 241, 0.06), transparent 60%)`;
+          spotlightRef.current.style.background = `radial-gradient(650px circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.035), transparent 55%)`;
         }
         rafId = null;
       });
@@ -32,7 +33,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#070913] text-slate-100 relative selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden">
+    <div className="min-h-screen bg-[#08090C] text-zinc-100 relative selection:bg-white/20 selection:text-white overflow-x-hidden">
       {/* Zero-re-render Hardware-accelerated Spotlight */}
       <div
         ref={spotlightRef}
@@ -46,8 +47,9 @@ export default function App() {
       <main className="relative z-10 flex flex-col">
         <Hero />
         <About />
-        <SkillsSection />
         <ProjectsSection />
+        <InteractiveTerminal />
+        <SkillsSection />
         <ExperienceSection />
         <EducationCertifications />
         <ContactSection />
